@@ -27,6 +27,7 @@
         FROM success_killed sk
         INNER JOIN seckill s ON sk.seckill_id = s.seckill_id
         WHERE sk.seckill_id = #{seckillId}
+        AND sk.user_phone = #{userPhone}
 
     </select>
 

@@ -32,7 +32,10 @@ public class SuccessKilledDaoTest {
     @Test
     public void testQueryByIdWithSeckill() throws Exception {
 
-        SuccessKilled successKilled = successKilledDao.queryByIdWithSeckill(1005);
+        long seckillId=1005;
+        long phone = 13554428667L;
+
+        SuccessKilled successKilled = successKilledDao.queryByIdWithSeckill(seckillId, phone);
         Seckill seckill = successKilled.getSeckill();
 
         System.out.println(seckill.getSeckillId());
