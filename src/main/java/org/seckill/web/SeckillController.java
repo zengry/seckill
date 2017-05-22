@@ -26,7 +26,7 @@ import java.util.List;
 
 
 @Controller
-@Repository("/seckill")
+@RequestMapping("/seckill")
 public class SeckillController {
 
 
