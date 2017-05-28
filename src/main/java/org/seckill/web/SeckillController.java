@@ -98,7 +98,7 @@ public class SeckillController {
     @ResponseBody
     public SeckillResult<SeckillExecution> execute(
             @PathVariable("seckillId") Long seckillId,
-            @PathVariable("killPhone") Long phone,
+            @CookieValue("killPhone") Long phone,
             @PathVariable("md5") String md5){
 
         if(phone == null){
@@ -121,6 +121,7 @@ public class SeckillController {
 
 
     @RequestMapping(value="/time/now", method = RequestMethod.GET)
+    @ResponseBody
     public SeckillResult<Long> time(){
         Date now = new Date();
         return new SeckillResult<Long>(true, now.getTime());
