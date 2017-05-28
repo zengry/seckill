@@ -73,7 +73,7 @@ var secklill = {
         var box = $('#seckill-box');
         //秒杀结束
         if(nowTime > endTime){
-            box.html('秒杀结束!');
+            box.html('秒杀活动已结束!');
         }else if(nowTime < startTime){
             var killTime = new Date(startTime + 1000);
             box.countdown(killTime, function(event){

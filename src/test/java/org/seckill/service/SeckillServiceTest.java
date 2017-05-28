@@ -25,6 +25,27 @@ import static org.junit.Assert.*;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({"classpath:spring/spring-service.xml", "classpath:spring/spring-dao.xml"})
 public class SeckillServiceTest {
+    @Test
+    public void executeSeckillByProcedure() throws Exception {
+        long seckillId = 1006;
+        long phone = 13554428770L;
+
+        Exposer exposer = seckillService.exposerSeckillUrl(seckillId);
+        String md5 = exposer.getMd5();
+
+        if(exposer.isExposed()){
+            try {
+                SeckillExecution seckillExecution =
+                        seckillService.executeSeckillByProcedure(seckillId, 13554428990L, md5);
+                System.out.println(seckillExecution.getStateInfo());
+            } catch (SeckillException e) {
+                logger.error(e.getMessage());
+            }
+        }else{
+            logger.warn("exposer{}", exposer);
+        }
+
+    }
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 

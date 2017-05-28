@@ -5,6 +5,7 @@ import org.seckill.entity.Seckill;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by zengry on 2017/5/21.
@@ -39,6 +40,7 @@ public interface SeckillDao {
 
 
 
+    void KillByProcedure(Map<String, Object> paramMap);
 
 
 }

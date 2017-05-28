@@ -105,7 +105,10 @@ public class SeckillController {
             return new SeckillResult<SeckillExecution>(false, "用户未注册");
         }
         try {
-            SeckillExecution execution = seckillService.executeSeckill(seckillId, phone, md5);
+//            SeckillExecution execution = seckillService.executeSeckill(seckillId, phone, md5);
+
+            //通过存储过程调用
+            SeckillExecution execution = seckillService.executeSeckillByProcedure(seckillId, phone, md5);
             return new SeckillResult<SeckillExecution>(true, execution);
         } catch (SeckillCloseException e) {
             SeckillExecution execution = new SeckillExecution(seckillId, SeckillStateEnum.END);
